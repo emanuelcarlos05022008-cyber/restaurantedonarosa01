@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Restaurante Dona Rosa | São Luís – MA</title>
+<meta name="description" content="Comida caseira, hambúrgueres, cachorro-quente e churrasquinho no Jardim Alvorada, São Luís – MA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#D0161E;--red2:#9E0D14;--yellow:#FFC61A;--black:#140B0A;--white:#FFFAF2;--ink:#2a1c1a;
+--display:'Alfa Slab One','Rockwell','Georgia',serif;--body:'DM Sans','Segoe UI',system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:76px;height:auto}
+body{margin:0;font-family:var(--body);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;margin:0}
+.wrap{width:min(1160px,92%);margin:auto}
+section{padding:96px 0}
+h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:14px}
+.lead{max-width:56ch;font-size:1.1rem;opacity:.85}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:calc(12px + env(safe-area-inset-top,0px)) 0 12px;transition:.35s;background:transparent}
+nav.on{background:rgba(20,11,10,.94);backdrop-filter:blur(8px);box-shadow:0 6px 24px rgba(0,0,0,.3)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);color:var(--yellow);font-size:1.35rem}
+.logo i{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--red);color:var(--white);font-style:normal;font-size:1.2rem;box-shadow:0 0 0 3px var(--yellow)}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;color:var(--white);font-weight:500}
+nav ul a{position:relative;padding:4px 0}
+nav ul a::after{content:"";position:absolute;left:0;bottom:-2px;height:3px;width:0;background:var(--yellow);transition:.3s}
+nav ul a:hover::after{width:100%}
+.menu-btn{display:none;background:none;border:0;color:var(--white);font-size:1.8rem;cursor:pointer}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:999px;font-weight:700;font-size:1rem;letter-spacing:.04em;border:2px solid transparent;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,background .25s,color .25s}
+.btn::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg)}
+.btn:hover::before{left:130%;transition:.7s}
+.btn:hover{transform:translateY(-4px)}
+.btn-main{background:var(--yellow);color:var(--black);box-shadow:0 8px 0 #c79300,0 14px 28px rgba(0,0,0,.35);animation:pulse 2.6s infinite}
+.btn-main:hover{box-shadow:0 12px 0 #c79300,0 20px 34px rgba(0,0,0,.4)}
+.btn-ghost{border-color:var(--white);color:var(--white)}
+.btn-ghost:hover{background:var(--white);color:var(--red)}
+.btn-red{background:var(--red);color:var(--white)}
+.btn-red:hover{background:var(--red2);box-shadow:0 10px 24px rgba(208,22,30,.4)}
+.btn-dark{background:var(--black);color:var(--yellow)}
+.btn-dark:hover{box-shadow:0 10px 24px rgba(0,0,0,.35)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:radial-gradient(circle at 75% 50%,#e8272f 0,var(--red) 35%,var(--red2) 75%);color:var(--white);padding:130px 0 90px;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-conic-gradient(from 0deg at 75% 50%,rgba(255,198,26,.10) 0 8deg,transparent 8deg 16deg);animation:spin 80s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+.stars-pill{display:inline-flex;gap:8px;align-items:center;background:rgba(20,11,10,.55);padding:8px 16px;border-radius:999px;font-size:.92rem;margin-bottom:22px;border:1px solid rgba(255,198,26,.5)}
+.stars-pill b{color:var(--yellow)}
+.hero h1{font-size:clamp(2.6rem,7.2vw,5.6rem);color:var(--yellow);text-shadow:0 5px 0 var(--red2)}
+.hero h1 small{display:block;font-size:.4em;color:var(--white);text-shadow:none;margin-bottom:10px}
+.hero .tag{font-family:var(--display);font-size:clamp(1.4rem,3vw,2.1rem);margin:20px 0 10px}
+.hero p.sub{max-width:46ch;font-size:1.12rem;opacity:.92;margin:0 0 34px}
+.ctas{display:flex;flex-wrap:wrap;gap:16px}
+.hero-art{position:relative;display:grid;place-items:center;animation:zoomIn 1.4s cubic-bezier(.2,.8,.2,1) both .3s}
+.hero-art svg{width:100%;max-width:520px;filter:drop-shadow(0 30px 30px rgba(0,0,0,.45));animation:float 5s ease-in-out infinite}
+.plate{position:absolute;width:86%;aspect-ratio:1;border-radius:50%;background:var(--yellow);opacity:.95;z-index:-1;box-shadow:0 0 0 14px rgba(255,198,26,.25)}
+.price-seal{position:absolute;right:2%;top:2%;width:118px;height:118px;border-radius:50%;background:var(--black);color:var(--yellow);display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:.95rem;line-height:1.1;transform:rotate(12deg);box-shadow:0 0 0 4px var(--yellow);animation:wob 4s ease-in-out infinite}
+.price-seal b{display:block;font-size:1.5rem;color:var(--white)}
+@keyframes float{50%{transform:translateY(-18px) rotate(1.5deg)}}
+@keyframes wob{50%{transform:rotate(4deg) scale(1.06)}}
+@keyframes zoomIn{from{opacity:0;transform:scale(.6) rotate(-8deg)}to{opacity:1;transform:none}}
+.in{opacity:0;transform:translateY(34px);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.3s}.d3{animation-delay:.5s}.d4{animation-delay:.7s}.d5{animation-delay:.9s}
+@keyframes up{to{opacity:1;transform:none}}
+.wave{position:absolute;bottom:-1px;left:0;width:100%;height:70px}
+
+/* MARQUEE */
+.marquee{background:var(--black);color:var(--yellow);overflow:hidden;padding:16px 0;font-family:var(--display);font-size:1.25rem;white-space:nowrap}
+.marquee div{display:inline-block;animation:slide 28s linear infinite}
+.marquee span{margin:0 28px}.marquee em{font-style:normal;color:var(--red)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.show{opacity:1;transform:none}
+
+/* MENU */
+.menu{background:var(--white)}
+.menu-head{text-align:center;margin-bottom:54px}
+.menu-head .lead{margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(20,11,10,.1);transition:transform .4s,box-shadow .4s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-10px) rotate(-.6deg);box-shadow:0 22px 44px rgba(208,22,30,.25)}
+.thumb{height:190px;display:grid;place-items:center;font-size:5.4rem;position:relative;overflow:hidden}
+.thumb span{transition:transform .6s;filter:drop-shadow(0 10px 8px rgba(0,0,0,.3))}
+.card:hover .thumb span{transform:scale(1.25) rotate(-8deg)}
+.c1 .thumb{background:linear-gradient(135deg,#D0161E,#ff5a3c)}
+.c2 .thumb{background:linear-gradient(135deg,#FFC61A,#ff9d1a)}
+.c3 .thumb{background:linear-gradient(135deg,#2a1210,#7a1f19)}
+.c4 .thumb{background:linear-gradient(135deg,#ff8a1a,#D0161E)}
+.c5 .thumb{background:linear-gradient(135deg,#f6d36b,#c97a1b)}
+.card .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:1.5rem;color:var(--red)}
+.card p{margin:0;opacity:.8;flex:1}
+.price{margin-top:10px;display:inline-block;align-self:flex-start;padding:6px 16px;border-radius:999px;border:2px dashed var(--red);color:var(--red);font-weight:700;font-size:.9rem}
+.card.cta-card{background:var(--black);color:var(--white);justify-content:center;align-items:center;text-align:center;padding:30px;gap:16px}
+.card.cta-card h3{color:var(--yellow)}
+
+/* ABOUT */
+.about{background:var(--black);color:var(--white);position:relative;overflow:hidden}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about h2{color:var(--yellow)}
+.about p{opacity:.88;font-size:1.08rem}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.feat div{border-left:4px solid var(--red);padding:4px 0 4px 14px;font-weight:500}
+.about-art{position:relative;height:440px;border-radius:30px;overflow:hidden;background:linear-gradient(160deg,var(--red),var(--red2))}
+.about-art .layer{position:absolute;inset:-12% 0;display:grid;place-items:center;font-size:12rem;will-change:transform}
+.about-art .big{font-family:var(--display);position:absolute;left:24px;bottom:18px;right:24px;color:var(--yellow);font-size:1.7rem;text-shadow:0 3px 0 var(--black)}
+.about::after{content:"";position:absolute;right:-120px;top:-120px;width:340px;height:340px;border-radius:50%;background:var(--yellow);opacity:.08}
+
+/* REVIEWS */
+.reviews{background:var(--yellow)}
+.score{display:flex;flex-wrap:wrap;align-items:center;gap:28px;margin-bottom:46px}
+.score .num{font-family:var(--display);font-size:clamp(4.5rem,12vw,8rem);line-height:.9;color:var(--red);text-shadow:0 4px 0 var(--black)}
+.score .meta b{display:block;font-size:1.6rem;letter-spacing:.2em;color:var(--black)}
+.rcard{background:var(--white);border-radius:20px;padding:28px;position:relative;box-shadow:0 12px 0 rgba(20,11,10,.9);transition:transform .3s}
+.rcard:hover{transform:translateY(-8px)}
+.rcard::before{content:"“";position:absolute;top:-6px;right:20px;font-family:var(--display);font-size:5rem;color:var(--red);opacity:.25}
+.rcard .st{color:#e3a400;letter-spacing:.15em}
+.rcard p{margin:10px 0 16px}
+.rcard strong{color:var(--red)}
+
+/* GALLERY */
+.gallery .head{text-align:center;margin-bottom:44px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:14px}
+.gi{position:relative;border-radius:18px;overflow:hidden;display:grid;place-items:center;cursor:pointer}
+.gi:nth-child(1),.gi:nth-child(6){grid-column:span 2;grid-row:span 2}
+.gi:nth-child(4){grid-row:span 2}
+.gi span{font-size:4.2rem;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.gi:nth-child(1) span,.gi:nth-child(6) span{font-size:8rem}
+.gi:hover span{transform:scale(1.35)}
+.gi b{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;color:var(--white);background:linear-gradient(transparent,rgba(20,11,10,.85));font-weight:500;transform:translateY(100%);transition:.4s}
+.gi:hover b{transform:none}
+.g1{background:linear-gradient(135deg,#D0161E,#9E0D14)}.g2{background:#FFC61A}.g3{background:#2a1210}.g4{background:linear-gradient(135deg,#ff8a1a,#D0161E)}.g5{background:#f3e3c3}.g6{background:linear-gradient(135deg,#FFC61A,#D0161E)}.g7{background:#9E0D14}.g8{background:#140B0A}
+
+/* CONTACT */
+.contact{background:var(--red);color:var(--white)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:stretch}
+.contact h2{color:var(--yellow)}
+.info{list-style:none;padding:0;margin:26px 0 30px;display:grid;gap:14px}
+.info li{display:flex;gap:14px;align-items:flex-start;font-size:1.08rem}
+.info i{font-style:normal;width:42px;height:42px;flex:none;border-radius:50%;background:var(--yellow);display:grid;place-items:center}
+.map{position:relative;border-radius:26px;overflow:hidden;min-height:380px;background:#f0e7d4;display:grid;place-items:center;text-align:center;color:var(--black);padding:30px;
+background-image:linear-gradient(90deg,rgba(20,11,10,.07) 2px,transparent 2px),linear-gradient(rgba(20,11,10,.07) 2px,transparent 2px);background-size:46px 46px}
+.map .pin{font-size:4.5rem;animation:drop 1.8s ease-in-out infinite}
+@keyframes drop{50%{transform:translateY(-14px)}}
+.map h3{font-size:1.6rem;margin:4px 0 6px;color:var(--red)}
+.map .btn{margin-top:18px}
+
+/* FOOTER */
+footer{background:var(--black);color:var(--white);padding:70px 0 28px}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer h4{font-family:var(--display);font-weight:400;color:var(--yellow);margin:0 0 14px;font-size:1.2rem}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;opacity:.85}
+footer a:hover{color:var(--yellow)}
+.soc{display:flex;gap:12px;margin-top:16px}
+.soc a{width:44px;height:44px;border-radius:50%;border:2px solid var(--yellow);display:grid;place-items:center;font-weight:700;color:var(--yellow);transition:.3s}
+.soc a:hover{background:var(--yellow);color:var(--black);transform:translateY(-4px)}
+.copy{border-top:1px solid rgba(255,255,255,.15);margin-top:44px;padding-top:20px;font-size:.88rem;opacity:.65;text-align:center}
+
+/* WHATSAPP */
+.wa{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;width:62px;height:62px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.35);animation:ring 3s infinite;transition:transform .3s}
+.wa:hover{transform:scale(1.12) rotate(-6deg)}
+.wa svg{width:34px;height:34px;fill:#fff}
+@keyframes ring{0%{box-shadow:0 8px 22px rgba(0,0,0,.35),0 0 0 0 rgba(37,211,102,.6)}70%,100%{box-shadow:0 8px 22px rgba(0,0,0,.35),0 0 0 22px rgba(37,211,102,0)}}
+
+@media(max-width:900px){
+ section{padding:70px 0}
+ .hero .wrap,.about .wrap,.contact .wrap,footer .cols{grid-template-columns:1fr}
+ .hero{padding-top:110px}.hero-art{order:-1;max-width:340px;margin:0 auto}
+ .price-seal{width:92px;height:92px;font-size:.75rem}.price-seal b{font-size:1.15rem}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+ .gi:nth-child(1),.gi:nth-child(6){grid-column:span 2}
+ .menu-btn{display:block}
+ nav ul{position:absolute;top:100%;left:0;right:0;background:var(--black);flex-direction:column;padding:18px 6%;gap:14px;display:none}
+ nav ul.open{display:flex}
+ .about-art{height:320px}.about-art .layer{font-size:9rem}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.in,.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+ <div class="wrap">
+  <a href="#inicio" class="logo"><i>R</i>Dona Rosa</a>
+  <button class="menu-btn" id="mb" aria-label="Abrir menu">☰</button>
+  <ul id="links">
+   <li><a href="#cardapio">Cardápio</a></li>
+   <li><a href="#sobre">Sobre nós</a></li>
+   <li><a href="#avaliacoes">Avaliações</a></li>
+   <li><a href="#galeria">Galeria</a></li>
+   <li><a href="#contato">Contato</a></li>
+  </ul>
+ </div>
+</nav>
+
+<header class="hero" id="inicio">
+ <div class="wrap">
+  <div>
+   <div class="stars-pill in d1">★★★★★ <b>4,7</b> no Google · 82 avaliações</div>
+   <h1 class="in d2"><small>Restaurante</small>Dona Rosa</h1>
+   <div class="tag in d3">Sabor de verdade, feito com carinho!</div>
+   <p class="sub in d4">Venha conhecer os sabores da nossa cozinha: comida caseira, hambúrgueres suculentos, cachorro-quente e churrasquinho no ponto, bem no Jardim Alvorada.</p>
+   <div class="ctas in d5">
+    <a class="btn btn-main" href="https://wa.me/5598988734294?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20o%20card%C3%A1pio%20do%20Restaurante%20Dona%20Rosa." target="_blank" rel="noopener">FAÇA SEU PEDIDO</a>
+    <a class="btn btn-ghost" href="#cardapio">CONHEÇA NOSSO CARDÁPIO</a>
+   </div>
+  </div>
+  <div class="hero-art" data-speed="0.06">
+   <div class="plate"></div>
+   <div class="price-seal"><div>de R$ 20<b>a R$ 40</b>por pessoa</div></div>
+   <svg viewBox="0 0 400 360" role="img" aria-label="Hambúrguer da Dona Rosa">
+    <path d="M60 150C60 70 130 30 200 30s140 40 140 120z" fill="#E08A1E"/>
+    <path d="M90 100c30-30 90-50 150-40" stroke="#F6B64E" stroke-width="10" stroke-linecap="round" fill="none" opacity=".7"/>
+    <g fill="#FFF4D6"><ellipse cx="150" cy="72" rx="9" ry="5" transform="rotate(-20 150 72)"/><ellipse cx="210" cy="55" rx="9" ry="5"/><ellipse cx="262" cy="80" rx="9" ry="5" transform="rotate(25 262 80)"/><ellipse cx="190" cy="104" rx="9" ry="5" transform="rotate(10 190 104)"/><ellipse cx="120" cy="115" rx="9" ry="5" transform="rotate(-30 120 115)"/></g>
+    <path d="M50 160q20 22 40 0t40 0 40 0 40 0 40 0 40 0 30 0v6H50z" fill="#4CAF3E"/>
+    <path d="M60 168h280l-20 26-30-12-30 22-30-22-30 22-30-22-30 12z" fill="#FFC61A"/>
+    <rect x="50" y="190" width="300" height="44" rx="22" fill="#5a2a14"/>
+    <path d="M70 205h260" stroke="#7a3a1c" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="200" cy="262" r="20" fill="#D0161E"/><circle cx="130" cy="262" r="20" fill="#D0161E"/><circle cx="270" cy="262" r="20" fill="#D0161E"/>
+    <path d="M60 252c0-6 4-8 8-8h264c4 0 8 2 8 8v6c0 10-8 16-18 16H78c-10 0-18-6-18-16z" fill="none"/>
+    <path d="M55 275h290c0 40-40 62-145 62S55 315 55 275z" fill="#E08A1E"/>
+    <path d="M85 296c30 20 150 24 230 0" stroke="#F6B64E" stroke-width="8" stroke-linecap="round" fill="none" opacity=".6"/>
+   </svg>
+  </div>
+ </div>
+ <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0 40C240 80 480 0 720 30s480 50 720 0v40H0z" fill="#140B0A"/></svg>
+</header>
+
+<div class="marquee" aria-hidden="true"><div>
+ <span>Comida caseira</span><em>★</em><span>Hambúrgueres</span><em>★</em><span>Cachorro-quente</span><em>★</em><span>Churrasquinho</span><em>★</em><span>Lanches especiais</span><em>★</em>
+ <span>Comida caseira</span><em>★</em><span>Hambúrgueres</span><em>★</em><span>Cachorro-quente</span><em>★</em><span>Churrasquinho</span><em>★</em><span>Lanches especiais</span><em>★</em>
+</div></div>
+
+<section class="menu" id="cardapio">
+ <div class="wrap">
+  <div class="menu-head rv">
+   <h2>Nosso cardápio</h2>
+   <p class="lead">Do prato feito de casa ao lanche na chapa: escolha seu favorito e peça pelo WhatsApp.</p>
+  </div>
+  <div class="grid">
+   <article class="card c1 rv"><div class="thumb"><span>🍔</span></div><div class="body"><h3>Hambúrgueres</h3><p>Pão macio, carne suculenta, queijo derretido e molho da casa. Montado na hora, do jeito que você gosta.</p><span class="price">R$ __,__</span></div></article>
+   <article class="card c2 rv"><div class="thumb"><span>🌭</span></div><div class="body"><h3>Cachorro-quente</h3><p>Salsicha bem passada, purê, vinagrete e todos os complementos. O clássico que nunca sai de moda.</p><span class="price">R$ __,__</span></div></article>
+   <article class="card c3 rv"><div class="thumb"><span>🍢</span></div><div class="body"><h3>Churrasquinho</h3><p>Espetinhos grelhados no ponto certo, com tempero caseiro e acompanhamentos.</p><span class="price">R$ __,__</span></div></article>
+   <article class="card c4 rv"><div class="thumb"><span>🥪</span></div><div class="body"><h3>Lanches especiais</h3><p>Combinações caprichadas, recheadas e crocantes para matar a fome de verdade.</p><span class="price">R$ __,__</span></div></article>
+   <article class="card c5 rv"><div class="thumb"><span>🍛</span></div><div class="body"><h3>Comida caseira</h3><p>Arroz, feijão, carnes e saladas com gosto de almoço em família, servidos todo dia.</p><span class="price">R$ __,__</span></div></article>
+   <article class="card cta-card rv"><h3>Bateu a fome?</h3><p>Peça agora e receba atendimento direto da Dona Rosa.</p><a class="btn btn-main" href="https://wa.me/5598988734294?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20o%20card%C3%A1pio%20do%20Restaurante%20Dona%20Rosa." target="_blank" rel="noopener">PEDIR AGORA</a></article>
+  </div>
+ </div>
+</section>
+
+<section class="about" id="sobre">
+ <div class="wrap">
+  <div class="rv">
+   <h2>Muito mais que uma refeição, uma experiência de sabor!</h2>
+   <p>O Restaurante Dona Rosa é aquele lugar onde você entra com fome e sai se sentindo em casa. Aqui, cada prato é preparado com ingredientes frescos, tempero de verdade e muito cuidado.</p>
+   <p>Ambiente agradável, atendimento dedicado e preço justo: de R$ 20 a R$ 40 por pessoa, para você comer bem sem pesar no bolso.</p>
+   <div class="feat"><div>Comida caseira de verdade</div><div>Ambiente acolhedor</div><div>Atendimento dedicado</div><div>Preço que cabe no bolso</div></div>
+  </div>
+  <div class="about-art rv"><div class="layer" data-speed="0.12">🍔</div><div class="big">Feito com carinho, servido com orgulho.</div></div>
+ </div>
+</section>
+
+<section class="reviews" id="avaliacoes">
+ <div class="wrap">
+  <div class="score rv">
+   <div class="num">4,7</div>
+   <div class="meta"><b>★★★★★</b><span>nota no Google, com 82 avaliações de clientes</span></div>
+  </div>
+  <div class="grid">
+   <div class="rcard rv"><div class="st">★★★★★</div><p>Comida caseira com tempero de casa de vó. Prato bem servido e preço justo. Já virei cliente fiel!</p><strong>Cliente Google</strong></div>
+   <div class="rcard rv"><div class="st">★★★★★</div><p>O hambúrguer é enorme e muito saboroso, carne no ponto e pão fresquinho. Recomendo demais.</p><strong>Cliente Google</strong></div>
+   <div class="rcard rv"><div class="st">★★★★★</div><p>O melhor cachorro-quente do bairro, bem completo. Atendimento rápido e muito simpático.</p><strong>Cliente Google</strong></div>
+  </div>
+ </div>
+</section>
+
+<section class="gallery" id="galeria">
+ <div class="wrap">
+  <div class="head rv"><h2>Galeria</h2><p class="lead" style="margin:auto">Um gostinho do que espera por você na Dona Rosa.</p></div>
+  <div class="gal">
+   <div class="gi g1 rv"><span>🍔</span><b>Hambúrguer da casa</b></div>
+   <div class="gi g2 rv"><span>🌭</span><b>Cachorro-quente</b></div>
+   <div class="gi g3 rv"><span>🍢</span><b>Churrasquinho</b></div>
+   <div class="gi g4 rv"><span>🍟</span><b>Porções</b></div>
+   <div class="gi g5 rv"><span>🍛</span><b>Prato caseiro</b></div>
+   <div class="gi g6 rv"><span>🥪</span><b>Lanches especiais</b></div>
+   <div class="gi g7 rv"><span>🥤</span><b>Bebidas geladas</b></div>
+   <div class="gi g8 rv"><span>🏠</span><b>Nosso ambiente</b></div>
+  </div>
+ </div>
+</section>
+
+<section class="contact" id="contato">
+ <div class="wrap">
+  <div class="rv">
+   <h2>Venha nos visitar</h2>
+   <ul class="info">
+    <li><i>📍</i><span>Rua Almeida Galhardo, 10<br>Jardim Alvorada, São Luís – MA</span></li>
+    <li><i>📞</i><span>(98) 98873-4294<br>Telefone e WhatsApp</span></li>
+    <li><i>💰</i><span>De R$ 20 a R$ 40 por pessoa</span></li>
+   </ul>
+   <div class="ctas">
+    <a class="btn btn-main" href="https://wa.me/5598988734294?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20o%20card%C3%A1pio%20do%20Restaurante%20Dona%20Rosa." target="_blank" rel="noopener">CHAMAR NO WHATSAPP</a>
+    <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Almeida+Galhardo+10+Jardim+Alvorada+S%C3%A3o+Lu%C3%ADs+MA" target="_blank" rel="noopener">TRAÇAR ROTA</a>
+   </div>
+  </div>
+  <div class="map rv">
+   <div><div class="pin">📍</div><h3>Restaurante Dona Rosa</h3><div>Rua Almeida Galhardo, 10<br>Jardim Alvorada, São Luís – MA</div>
+   <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Rua+Almeida+Galhardo+10+Jardim+Alvorada+S%C3%A3o+Lu%C3%ADs+MA" target="_blank" rel="noopener">ABRIR NO GOOGLE MAPS</a></div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div class="cols">
+   <div><a href="#inicio" class="logo"><i>R</i>Dona Rosa</a><p style="opacity:.8;max-width:34ch">Sabor de verdade, feito com carinho. Lanchonete e restaurante em São Luís – MA.</p>
+    <div class="soc"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">f</a><a href="https://wa.me/5598988734294" aria-label="WhatsApp">W</a></div></div>
+   <div><h4>Navegue</h4><ul><li><a href="#cardapio">Cardápio</a></li><li><a href="#sobre">Sobre nós</a></li><li><a href="#avaliacoes">Avaliações</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#contato">Contato</a></li></ul></div>
+   <div><h4>Fale com a gente</h4><ul><li>Rua Almeida Galhardo, 10</li><li>Jardim Alvorada, São Luís – MA</li><li><a href="tel:+5598988734294">(98) 98873-4294</a></li></ul></div>
+  </div>
+  <div class="copy">© 2026 Restaurante Dona Rosa. Todos os direitos reservados.</div>
+ </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5598988734294?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20o%20card%C3%A1pio%20do%20Restaurante%20Dona%20Rosa." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+ <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.800 1 3.800 1.500 5.600 1.500 7 0 12.600-5.600 12.600-12.500S23 3 16 3zm0 22.800c-1.800 0-3.500-.5-5-1.400l-.4-.2-4.400 1.200 1.200-4.300-.3-.4a10.200 10.200 0 0 1-1.600-5.500C5.500 9.900 10.200 5.300 16 5.300s10.500 4.600 10.500 10.300S21.800 25.800 16 25.800zm5.800-7.600c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.400-.5-2.600-1.600-1-.9-1.600-1.900-1.800-2.200-.2-.3 0-.5.100-.7l.5-.5c.1-.2.200-.3.300-.5.100-.2.100-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.500s1.100 2.900 1.200 3.100c.2.200 2.100 3.300 5.200 4.500 3 1.200 3 .8 3.600.7.600-.1 1.900-.8 2.200-1.500.3-.7.300-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script>
+(function(){
+ var nav=document.getElementById('nav'),mb=document.getElementById('mb'),ul=document.getElementById('links');
+ mb.addEventListener('click',function(){ul.classList.toggle('open')});
+ ul.addEventListener('click',function(e){if(e.target.tagName==='A')ul.classList.remove('open')});
+ var els=document.querySelectorAll('.rv');
+ if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(en){en.forEach(function(x,i){if(x.isIntersecting){setTimeout(function(){x.target.classList.add('show')},(i%4)*90);io.unobserve(x.target)}})},{threshold:.15});
+  els.forEach(function(e){io.observe(e)});
+ }else{els.forEach(function(e){e.classList.add('show')})}
+ var par=document.querySelectorAll('[data-speed]'),tick=false;
+ function upd(){
+  var y=window.scrollY;nav.classList.toggle('on',y>40);
+  par.forEach(function(p){var r=p.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
+   var off=(r.top+r.height/2-innerHeight/2)*parseFloat(p.dataset.speed);
+   if(p.classList.contains('layer')){p.style.transform='translateY('+(-off)+'px) scale(1.08)'}
+   else{p.style.translate='0 '+(-off)+'px'}});
+  tick=false;
+ }
+ window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+ upd();
+})();
+</script>
+</body>
+</html>
